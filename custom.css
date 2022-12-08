@@ -1,0 +1,9 @@
+/* I like MS emojis better sadly */
+@import url("https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Themes/EmojiReplace/base/Microsoft.css");
+/* The new font, gg sans, is fucking ugly */
+@import url('https://codef53.github.io/CSS-Snippets/discord/RevertFont.css');
+
+/* A small fix for a plugin for Vencord */
+#oneko {
+    z-index: 1000;
+}
