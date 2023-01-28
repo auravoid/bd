@@ -7,3 +7,77 @@
 #oneko {
     z-index: 1000;
 }
+
+/* Add oneko to chat bar [by refact0r] */
+[class^="channelTextArea"]::before {
+    content: "";
+    width: 32px;
+    height: 32px;
+    bottom: calc(100% - 3px);
+    /* Mess with the - 3px to change its vertical position */
+    right: 10px;
+    /* Switch this from right to left to put it on the left side, or increase/decrease to change its position */
+    position: absolute;
+    image-rendering: pixelated;
+    background-image: url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif");
+    animation: sleep 1s infinite;
+    /* change 1s to make the animation slower/faster */
+}
+
+[class^="channelTextArea"]:hover::before {
+    animation: 2.5s 1 forwards wakeup;
+    /* change 1s to make the animation slower/faster */
+}
+
+@keyframes sleep {
+
+    /*
+    if you open the background image in ur browser, you will see that it has way more frames
+    so if you want, you could make ur own keyframes for a different animation
+    the top left frame is 0 0, second top row is -32 0, second row second is -32 -32 and so on
+    the ...00001% makes it so that there's no transition between the frames, so if you wanted say 3 frames, you'd do 0%, 33.3%; 33.30001%, 66.6%; 66.60001%, 100%
+    */
+    0%,
+    50% {
+        background-position: -64px 0;
+    }
+
+    50.00001%,
+    100% {
+        background-position: -64px -32px;
+    }
+}
+
+@keyframes wakeup {
+
+    0%,
+    20% {
+        background-position: -160px 0;
+    }
+
+    20.00001%,
+    40% {
+        background-position: -192px 0;
+    }
+
+    40.00001%,
+    60% {
+        background-position: -224px 0;
+    }
+
+    60.00001%,
+    80% {
+        background-position: -96px -64px;
+    }
+
+    80.00001%,
+    100% {
+        background-position: -96px -96px;
+    }
+}
+
+/* Fix star on gifs */
+.imageAccessory-2yA7Kb {
+    left: initial;
+    right: 6px;
+}
